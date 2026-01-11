@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinMystique | Real-time Crypto, Refined</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="logo">
+                        <i class="fas fa-gem"></i>
+                        <h1>Coin<span>Mystique</span></h1>
+                    </div>
+                    <p class="tagline">Real-time crypto, refined.</p>
+                </div>
+                <div class="header-controls">
+                    <div class="theme-toggle">
+                        <button id="themeToggle" class="theme-btn">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </button>
+                    </div>
+                    <div class="currency-selector">
+                        <select id="currencySelect">
+                            <option value="usd">USD ($)</option>
+                            <option value="gbp">GBP (£)</option>
+                            <option value="ngn">NGN (₦)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Controls Panel -->
+        <section class="controls-panel">
+            <div class="panel-left">
+                <div class="coin-selector">
+                    <div class="selector-header">
+                        <i class="fas fa-coins"></i>
+                        <h3>Track Coins</h3>
+                    </div>
+                    <div class="selector-body">
+                        <select id="coinSelect" multiple>
+                            <option value="bitcoin" selected>Bitcoin (BTC)</option>
+                            <option value="ethereum" selected>Ethereum (ETH)</option>
+                            <option value="litecoin" selected>Litecoin (LTC)</option>
+                            <option value="ripple">Ripple (XRP)</option>
+                            <option value="cardano">Cardano (ADA)</option>
+                            <option value="solana">Solana (SOL)</option>
+                            <option value="polkadot">Polkadot (DOT)</option>
+                            <option value="dogecoin">Dogecoin (DOGE)</option>
+                            <option value="chainlink">Chainlink (LINK)</option>
+                            <option value="stellar">Stellar (XLM)</option>
+                        </select>
+                        <p class="hint">Hold Ctrl/Cmd to select multiple coins</p>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <button id="fetchAllBtn" class="btn-action btn-primary">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Refresh All</span>
+                    </button>
+                    <button id="startAutoBtn" class="btn-action btn-success">
+                        <i class="fas fa-play"></i>
+                        <span>Auto Update</span>
+                    </button>
+                    <button id="stopAutoBtn" class="btn-action btn-danger" disabled>
+                        <i class="fas fa-stop"></i>
+                        <span>Stop</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-right">
+                <div class="search-box">
+                    <div class="search-header">
+                        <i class="fas fa-search"></i>
+                        <h3>Lookup Coin</h3>
+                    </div>
+                    <div class="search-body">
+                        <div class="input-group">
+                            <input type="text" id="coinSearch" placeholder="Enter coin name (e.g., bitcoin)">
+                            <button id="searchCoinBtn" class="btn-search">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="searchResult" class="search-result">
+                            <div class="placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Search for any cryptocurrency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Price Grid -->
+            <section class="price-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Live Prices</h2>
+                    <div class="section-actions">
+                        <span class="update-status" id="updateStatus">Last updated: Never</span>
+                        <span class="live-badge">
+                            <i class="fas fa-circle"></i> Live
+                        </span>
+                    </div>
+                </div>
+                <div id="priceGrid" class="price-grid">
+                    <!-- Dynamic content will be loaded here -->
+                    <div class="loading-state">
+                        <div class="loader"></div>
+                        <p>Loading cryptocurrency prices...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Price History (24h)</h2>
+                    <div class="chart-controls">
+                        <select id="chartCoinSelect">
+                            <option value="bitcoin">Bitcoin</option>
+                            <option value="ethereum">Ethereum</option>
+                            <option value="litecoin">Litecoin</option>
+                        </select>
+                        <select id="chartInterval">
+                            <option value="1">1 Day</option>
+                            <option value="7">7 Days</option>
+                            <option value="30">30 Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Market Stats -->
+            <section class="stats-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Market Overview</h2>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Market Cap</h3>
+                            <p class="stat-value" id="totalMarketCap">--</p>
+                            <p class="stat-change" id="marketCapChange">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>24h Volume</h3>
+                            <p class="stat-value" id="totalVolume">--</p>
+                            <p class="stat-change" id="volumeChange">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Dominance</h3>
+                            <p class="stat-value" id="btcDominance">--</p>
+                            <p class="stat-change">Bitcoin</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-list-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Coins</h3>
+                            <p class="stat-value" id="activeCoins">--</p>
+                            <p class="stat-change">Tracked</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-gem"></i>
+                    <span>CoinMystique</span>
+                </div>
+                <div class="footer-info">
+                    <p>Real-time cryptocurrency data powered by CoinGecko API</p>
+                    <p class="disclaimer">Cryptocurrency investments are subject to market risk. Prices are for informational purposes only.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
