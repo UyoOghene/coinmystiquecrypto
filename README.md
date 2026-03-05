@@ -1,4 +1,5 @@
  CoinMystique - Real-time Cryptocurrency Dashboard
+ https://coinmystique.netlify.app/
 
 A modern, responsive web application for tracking real-time cryptocurrency prices, market data, and price history. Built with vanilla JavaScript, HTML5, and CSS3, powered by the CoinGecko API.
 
