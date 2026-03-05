@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light-theme">
     <div class="container">
@@ -21,7 +20,28 @@
                     </div>
                     <p class="tagline">Real-time crypto, refined.</p>
                 </div>
+                
                 <div class="header-controls">
+                    <!-- Navigation Section -->
+                    <div class="header-nav">
+                        <a href="#dashboard" class="nav-btn active">
+                            <i class="fas fa-chart-line"></i>
+                            Dashboard
+                        </a>
+                        <a href="#prices" class="nav-btn">
+                            <i class="fas fa-coins"></i>
+                            Prices
+                        </a>
+                        <a href="#news" class="nav-btn">
+                            <i class="fas fa-newspaper"></i>
+                            News
+                        </a>
+                        <a href="#portfolio" class="nav-btn">
+                            <i class="fas fa-wallet"></i>
+                            Portfolio
+                        </a>
+                    </div>
+                    
                     <div class="theme-toggle">
                         <button id="themeToggle" class="theme-btn">
                             <i class="fas fa-moon"></i>
@@ -107,7 +127,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Price Grid -->
-            <section class="price-section">
+            <section id="prices" class="price-section">
                 <div class="section-header">
                     <h2><i class="fas fa-chart-bar"></i> Live Prices</h2>
                     <div class="section-actions">
@@ -127,7 +147,7 @@
             </section>
 
             <!-- Charts Section -->
-            <section class="charts-section">
+            <section id="dashboard" class="charts-section">
                 <div class="section-header">
                     <h2><i class="fas fa-chart-line"></i> Price History (24h)</h2>
                     <div class="chart-controls">
@@ -196,28 +216,171 @@
                     </div>
                 </div>
             </section>
+
+            <!-- News & Insights Section -->
+            <section id="news" class="news-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-newspaper"></i> Crypto News & Insights</h2>
+                    <button class="refresh-news">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh News
+                    </button>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card featured">
+                        <div class="news-category">Market Analysis</div>
+                        <h3 class="news-title">Bitcoin ETF Approval Sparks Institutional Interest</h3>
+                        <p class="news-excerpt">Major financial institutions increase crypto exposure following regulatory approvals...</p>
+                        <div class="news-footer">
+                            <span class="news-source">Bloomberg Crypto</span>
+                            <span class="news-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-category">Technology</div>
+                        <h3 class="news-title">Ethereum Layer 2 Solutions Hit Record Usage</h3>
+                        <p class="news-excerpt">Arbitrum and Optimism see 300% increase in daily transactions...</p>
+                        <div class="news-footer">
+                            <span class="news-source">CoinDesk</span>
+                            <span class="news-time">4 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-category">Regulation</div>
+                        <h3 class="news-title">Global Crypto Regulations Taking Shape</h3>
+                        <p class="news-excerpt">EU's MiCA framework sets new standards for crypto markets...</p>
+                        <div class="news-footer">
+                            <span class="news-source">Reuters</span>
+                            <span class="news-time">6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
-        <!-- Footer -->
+        <!-- Enhanced Footer -->
         <footer class="main-footer">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <i class="fas fa-gem"></i>
-                    <span>CoinMystique</span>
+                    <div class="footer-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>CoinMystique</span>
+                    </div>
+                    <p class="footer-tagline">Intelligent cryptocurrency tracking for modern investors</p>
                 </div>
-                <div class="footer-info">
-                    <p>Real-time cryptocurrency data powered by CoinGecko API</p>
-                    <p class="disclaimer">Cryptocurrency investments are subject to market risk. Prices are for informational purposes only.</p>
-                </div>
+                
                 <div class="footer-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <div class="link-group">
+                        <h4>Platform</h4>
+                        <a href="#dashboard">Dashboard</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#analytics">Analytics</a>
+                        <a href="#api">API</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Resources</h4>
+                        <a href="#documentation">Documentation</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#reports">Market Reports</a>
+                        <a href="#research">Research</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="#about">About</a>
+                        <a href="#careers">Careers</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#legal">Legal</a>
+                    </div>
                 </div>
+                
+                <div class="footer-actions">
+                    <div class="social-links">
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-btn">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                    <div class="newsletter">
+                        <p>Stay updated with crypto insights</p>
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Your email">
+                            <button>Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 CoinMystique. Real-time data powered by CoinGecko API.</p>
+                <p class="disclaimer">Cryptocurrency investments involve risk. Past performance is not indicative of future results.</p>
             </div>
         </footer>
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Optional: Add smooth scrolling for navigation -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-btn, .footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle internal links
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Update active state in navigation
+                        document.querySelectorAll('.nav-btn').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Smooth scroll to target
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Highlight active section based on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-btn');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
